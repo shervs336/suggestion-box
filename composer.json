@@ -2,7 +2,7 @@
     "name": "shervs336/suggestion-box",
     "description": "A basic suggestion box for laravel applications.",
     "type": "project",
-    "license": "GPL",
+    "license": "MIT",
     "authors": [
         {
             "name": "Sherwin Rhey Condez",
