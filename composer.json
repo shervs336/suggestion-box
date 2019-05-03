@@ -3,6 +3,7 @@
     "description": "A basic suggestion box for laravel applications.",
     "type": "project",
     "license": "GPL",
+    "minimum-stability": "v1.0",
     "authors": [
         {
             "name": "Sherwin Rhey Condez",
