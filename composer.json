@@ -1,0 +1,27 @@
+{
+    "name": "shervs336/suggestion-box",
+    "description": "A basic suggestion box for laravel applications.",
+    "type": "project",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Sherwin Rhey Condez",
+            "email": "sherwinrheycondez@gmail.com"
+        }
+    ],
+    "require": {
+        "laracasts/flash": "^3.0"
+    },
+    "autoload": {
+      "psr-4": {
+          "Shervs336\\SuggestionBox\\" : "src/"
+      }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Shervs336\\SuggestionBox\\SuggestionBoxServiceProvider"
+            ]
+        }
+    }
+}
