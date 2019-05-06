@@ -27,7 +27,7 @@ class SuggestionController extends Controller
      */
     public function create()
     {
-        //
+        return view('suggestion-box::create');
     }
 
     /**
@@ -60,7 +60,13 @@ class SuggestionController extends Controller
      */
     public function edit(Suggestion $suggestion)
     {
-        //
+        if(empty($suggestion)){
+          flash()->error("Suggestion does not exists");
+
+          return redirect(route('suggestions.index'));
+        }
+
+        return view('suggestion:;edit', compact('suggestion'));
     }
 
     /**

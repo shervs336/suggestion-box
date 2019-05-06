@@ -16,7 +16,6 @@
   <div class="container-fluid">
 
     <div class="row">
-      From Package
       @include('suggestion-box::lists')
     </div>
 
