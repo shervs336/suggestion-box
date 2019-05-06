@@ -3,6 +3,7 @@
 namespace Shervs336\SuggestionBox;
 
 use Illuminate\Support\ServiceProvider;
+use Sherv336\SuggestionBox\Tools\Suggestion;
 
 class SuggestionBoxServiceProvider extends ServiceProvider
 {
@@ -21,6 +22,10 @@ class SuggestionBoxServiceProvider extends ServiceProvider
 
   public function register()
   {
+    $this->app->singleton(Suggestion::class, function () {
+      return new Suggestion;
+    });
 
+    $this->app->alias(Suggestion::class, 'suggestion');
   }
 }

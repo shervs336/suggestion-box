@@ -21,7 +21,10 @@
         "laravel": {
             "providers": [
                 "Shervs336\\SuggestionBox\\SuggestionBoxServiceProvider"
-            ]
+            ],
+            "aliases": {
+                "Suggestion": "Shervs336\\SuggestionBox\\Facades\\SuggestionFacade"  
+            }
         }
     }
 }
