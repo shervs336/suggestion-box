@@ -16,7 +16,7 @@ class SuggestionBoxServiceProvider extends ServiceProvider
 
     $this->publishes([
       __DIR__.'/../resources/views' => base_path('resources/views/vendor/suggestion-box'),
-    ]);
+    ], 'migration');
   }
 
   public function register()
