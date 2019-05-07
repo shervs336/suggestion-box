@@ -15,7 +15,7 @@ class SuggestionController extends Controller
      */
     public function index()
     {
-        $suggestions = Suggestion::all();
+        $suggestions = Suggestion::paginate(10);
 
         return view('suggestion-box::index', compact('suggestions'));
     }
@@ -38,7 +38,14 @@ class SuggestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inputs = $request->all();
+        $inputs['user_id'] = auth()->user()->id;
+
+        $suggestion = Suggestion::create($inputs);
+
+        flash()->success('New suggestion successfully saved!');
+
+        return redirect(route('suggestions.index'));
     }
 
     /**
@@ -49,7 +56,15 @@ class SuggestionController extends Controller
      */
     public function show(Suggestion $suggestion)
     {
-        //
+        if(empty($suggestion)){
+          flash()->error("Suggestion does not exists");
+
+          return redirect(route('suggestions.index'));
+        }
+
+        $comments = $suggestion->comments()->paginate(1);
+
+        return view('suggestion-box::show', compact('suggestion', 'comments'));
     }
 
     /**
@@ -66,7 +81,7 @@ class SuggestionController extends Controller
           return redirect(route('suggestions.index'));
         }
 
-        return view('suggestion:;edit', compact('suggestion'));
+        return view('suggestion::edit', compact('suggestion'));
     }
 
     /**
@@ -89,6 +104,16 @@ class SuggestionController extends Controller
      */
     public function destroy(Suggestion $suggestion)
     {
-        //
+        if(empty($suggestion)){
+          flash()->error("Suggestion does not exists");
+
+          return redirect(route('suggestions.index'));
+        }
+
+        flash()->success("Suggestion successfully removed!");
+
+        $suggestion->delete();
+
+        return redirect(route('suggestions.index'));
     }
 }

@@ -10,8 +10,13 @@ class Suggestion extends Model
 
     protected $table = 'suggestions';
 
-    public function comment()
+    public function comments()
     {
       return $this->hasMany('Shervs336\SuggestionBox\Models\Comment');
+    }
+
+    public function user()
+    {
+      return $this->belongsTo('App\User');
     }
 }
